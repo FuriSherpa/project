@@ -31,12 +31,27 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Custom App
+    'userauths',
+    'hotel',
+    'addon',
+    'user_dashboard',
+
+    # Third Party App
+    'crispy_forms',
+    'import_export',
+    'mathfilters',
+    'taggit',
+    'anymail',
+    'django_ckeditor_5',
 ]
 
 MIDDLEWARE = [
@@ -121,3 +136,97 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Custom Admin Settings
+JAZZMIN_SETTINGS = {
+    "site_title": "StayEase",
+    "site_header": "StayEase",
+    "site_brand": "StayEase",
+    "site_icon": "assets/logo/favicon.png",
+    "site_logo": "assets/logo/favicon.png",
+    "welcome_sign": "Welcome To Desphixs",
+    "copyright": "StayEase",
+    "user_avatar": "images/photos/logo.jpg",
+    "topmenu_links": [
+        {"name": "Home", "url": "admin:index", "permissions": ["auth.view_user"]},
+        {"name": "Company", "url": "/admin/addons/company/"},
+        {"name": "Users", "url": "/admin/userauths/users/"},
+        {"model": "auth.User"},
+    ],
+    "show_sidebar": True,
+    "navigation_expanded": True,
+    "order_with_respect_to": [
+        "hotel",
+        "hotel.Hotel",
+        "hotel.Room",
+        "hotel.Booking",
+        "hotel.BookingDetail",
+        "hotel.Guest",
+        "hotel.RoomServices",
+        "userauths",
+        "addons",
+    ],
+    "icons": {
+        "admin.LogEntry": "fas fa-file",
+        "auth": "fas fa-users-cog",
+        "auth.user": "fas fa-user",
+        "userauths.User": "fas fa-user",
+        "userauths.Profile":"fas fa-address-card",
+        
+        "hotel.Hotel":"fas fa-th",
+        "hotel.Booking":"fas fa-calendar-week",
+        "hotel.BookingDetail":"fas fa-calendar-alt",
+        "hotel.Guest":"fas fa-user",
+        "hotel.Room":"fas fa-bed",
+        "hotel.RoomServices":"fas fa-user-cog",
+        "hotel.Notification":"fas fa-bell",
+        "hotel.Coupon":"fas fa-tag",
+        "hotel.Bookmark":"fas fa-heart",
+    },
+    "default_icon_parents": "fas fa-chevron-circle-right",
+    "default_icon_children": "fas fa-arrow-circle-right",
+    "related_modal_active": False,
+    
+    "custom_js": None,
+    "show_ui_builder": True,
+    
+    "changeform_format": "horizontal_tabs",
+    "changeform_format_overrides": {
+        "auth.user": "collapsible",
+        "auth.group": "vertical_tabs",
+    },
+}
+
+# Jazzmin UI Tweaks
+JAZZMIN_UI_TWEAKS = {
+    "navbar_small_text": False,
+    "footer_small_text": False,
+    "body_small_text": True,
+    "brand_small_text": False,
+    "brand_colour": "navbar-indigo",
+    "accent": "accent-olive",
+    "navbar": "navbar-indigo navbar-dark",
+    "no_navbar_border": False,
+    "navbar_fixed": False,
+    "layout_boxed": False,
+    "footer_fixed": False,
+    "sidebar_fixed": False,
+    "sidebar": "sidebar-dark-indigo",
+    "sidebar_nav_small_text": False,
+    "sidebar_disable_expand": False,
+    "sidebar_nav_child_indent": False,
+    "sidebar_nav_compact_style": False,
+    "sidebar_nav_legacy_style": False,
+    "sidebar_nav_flat_style": False,
+    "theme": "default",
+    "dark_mode_theme": None,
+    "button_classes": {
+        "primary": "btn-outline-primary",
+        "secondary": "btn-outline-secondary",
+        "info": "btn-info",
+        "warning": "btn-warning",
+        "danger": "btn-danger",
+        "success": "btn-success"
+    }
+}
