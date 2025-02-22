@@ -1,0 +1,60 @@
+# Byte-compiled / binary files
+__pycache__/
+*.py[cod]
+*.so
+*.pyo
+
+# Django-specific files
+*.log
+*.pot
+*.pyc
+*.sqlite3
+db.sqlite3
+db.sqlite3-journal
+
+# Ignore Django migrations (optional, but useful in some cases)
+**/migrations/**  # Only keep __init__.py in migrations
+
+# Virtual environment (venv)
+venv/
+.env
+*.venv
+env/
+ENV/
+
+# Ignore media/uploads (optional)
+media/
+static/
+
+# Local settings (if any)
+settings_local.py
+.env  # Environment variables
+
+# VS Code settings
+.vscode/
+
+# macOS & Windows system files
+.DS_Store
+Thumbs.db
+
+# Python virtual environment & dependencies
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Ignore Jupyter notebooks checkpoints (if you use them)
+.ipynb_checkpoints/
+
+# Ignore compiled files and cache
+*.egg-info/
+.eggs/
+*.manifest
+*.spec
+*.bak
+
+# Celery (if used)
+celerybeat-schedule
+celerybeat.pid
+
+# Heroku / Deployment
+*.env
+Procfile
